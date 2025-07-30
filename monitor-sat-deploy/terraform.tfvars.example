@@ -1,0 +1,37 @@
+# Ejemplo de archivo terraform.tfvars
+# Copia este archivo a terraform.tfvars y llena los valores
+
+# Configuración básica
+aws_region   = "us-east-2"
+project_name = "monitor-sat"
+
+# Instancia EC2 (t3.micro está en free tier)
+instance_type = "t3.micro" # o "t3.small" para mejor performance
+volume_size   = 20         # GB - 20GB es suficiente para la aplicación
+
+# SSH - Genera tu clave con: ssh-keygen -t rsa -b 4096 -f ~/.ssh/monitor-sat
+public_key = "ssh-rsa AAAA...TU-CLAVE-PUBLICA"
+
+# Dominio y SSL
+domain_name = "monitor-sat.tu-dominio.com"
+admin_email = "admin@tu-dominio.com"
+
+# Credenciales Finkok (mantener seguras)
+finkok_username = "TU_USUARIO_FINKOK"
+finkok_password = "TU_PASSWORD_FINKOK"
+
+# Certificados SAT (codificados en base64)
+# Para obtener: base64 -w 0 cert.cer
+cert_content = "BASE64_CERT_AQUI"
+# Para obtener: base64 -w 0 key.key  
+key_content = "BASE64_KEY_AQUI"
+
+# Git (opcional - si tienes el código en GitHub)
+github_repo   = "https://github.com/tu-usuario/monitor-sat.git"
+github_branch = "main"
+
+# Route53 (opcional - solo si quieres que Terraform gestione DNS)
+create_route53_zone = false # cambiar a true si quieres gestionar DNS
+
+# Ambiente
+environment = "development"
