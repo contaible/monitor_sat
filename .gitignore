@@ -32,3 +32,6 @@ certificados/
 # Logs / artefactos
 *.log
 *.tmp
+monitor-sat-deploy/terraform.tfvars
+monitor-sat-deploy/cert_base64.txt
+monitor-sat-deploy/key_base64.txt
